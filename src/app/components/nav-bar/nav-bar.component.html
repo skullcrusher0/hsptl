@@ -1,0 +1,77 @@
+<mat-toolbar color="primary" class="fixed-header" fxShow fxHide.xs="true" fxHide.lg="false">
+    <mat-toolbar-row>
+        <a mat-button routerLink="/login" routerLinkActive="active">
+            <h4 class="red">
+                HSPTL
+                <mat-icon>favorite</mat-icon>
+            </h4>
+        </a>
+        <a mat-button routerLink="/letstalk" routerLinkActive="active">Let's Talk</a>
+        <a mat-button routerLink="/findadoc" routerLinkActive="active">Find Doc</a>
+        <button mat-button [matMenuTriggerFor]="menu">Find Cure</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Talk to Doc</button>
+            <button mat-menu-item>Tell us Symptoms</button>
+        </mat-menu>
+        <a mat-button routerLink="/" routerLinkActive="active">Blog</a>
+        <span class="space"></span>
+        <a mat-button routerLink="/login" routerLinkActive="active">Login / Signup</a>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container fxHide fxHide.xs="false" fxHide.lg="true">
+    <mat-sidenav #sidenav mode="push">
+        <button type="button" mat-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+        <i>Hi, There ... ! </i>
+        <mat-icon>sentiment_satisfied_alt</mat-icon>
+        <p>
+            <a mat-button routerLink="/login" routerLinkActive="active">Login / Signup</a>
+        </p>
+        <p>
+            <a mat-button routerLink="/" routerLinkActive="active">Let's Talk</a>
+        </p>
+        <p>
+            <a mat-button routerLink="/" routerLinkActive="active">Find Doc</a>
+        </p>
+        <p>
+            <button mat-button [matMenuTriggerFor]="menu">Find Cure</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>Talk to Doc</button>
+                <button mat-menu-item>Tell us Symptoms</button>
+            </mat-menu>
+        </p>
+        <p>
+            <a mat-button routerLink="/blog" routerLinkActive="active">Blog</a>
+        </p>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary" class="fixed-header">
+            <mat-toolbar-row>
+                <button type="button" mat-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+                <span class="space"></span>
+                <a mat-button routerLink="/login" routerLinkActive="active">
+                    <h4 class="red">
+                        HSPTL
+                        <mat-icon>favorite</mat-icon>
+                    </h4>
+                </a>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<ul *ngFor="let post of posts | async">
+    <li>
+        <h2>{{post.title}}</h2>
+    </li>
+    <!-- <li>
+        <h3>{{post.datePublished}}</h3>
+    </li> -->
+    <li>
+        <h3>{{post.content}}</h3>
+    </li>
+</ul>

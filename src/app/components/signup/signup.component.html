@@ -1,0 +1,143 @@
+<div class="tallest" fxLayout="column" fxShow fxHide.xs="true" fxHide.lg="false">
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <a mat-button routerLink="/home" routerLinkActive="active">
+                <h4 class="rdpr">
+                    HSPTL
+                    <mat-icon>favorite</mat-icon>
+                </h4>
+            </a>
+            <span class="space"></span>
+            <h4 class="mat-card-body purple">
+                Let's Sign Up
+            </h4>
+            <span class="space"></span>
+            <a mat-button routerLink="/login" routerLinkActive="active">
+                <h6 class="red">
+                    <mat-icon>keyboard_backspace</mat-icon>
+                    Login
+                </h6>
+            </a>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="rest" fxFlex="100">
+        <mat-tab-group mat-align-tabs="center" fxFill class="mat-elevation-z10">
+            <mat-tab fxFill label="For Users">
+                <div class="lower" fxFlex="100" fxLayout="row wrap" fxLayoutAlign="space-around end">
+                    <div fxLayout="column" fxLayoutAlign="space-evenly end" fxFlex="45" fxLayoutGap="5">
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Name</mat-label>
+                            <input type="text" matInput placeholder="Name" #nameUserDes required>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Gender</mat-label>
+                            <mat-select #genderUserDes>
+                                <mat-option *ngFor="let gender of genders" [value]="gender.value" required>
+                                    {{gender.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Location</mat-label>
+                            <input type="text" matInput placeholder="Location" #locationUserDes required>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Language Preference</mat-label>
+                            <mat-select #languageUserDes required>
+                                <mat-option *ngFor="let language of languages" [value]="language.value">
+                                    {{language.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <a mat-stroked-button fxFlex="45%" class="field purple-bg" (click)="authService.signUpForUser(emailUserDes.value,passwordUserDes.value,{name:nameUserDes.value,contact:contactUserDes.value,location:locationUserDes.value,language:languageUserDes.value,gender:genderUserDes.value,dateOfBirth:dateOfBirthUserDes.value})">Sign Up</a>
+                    </div>
+                    <div fxLayout="column" fxLayoutAlign="space-evenly start" fxFlex="45" fxLayoutGap="5">
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput placeholder="Email" #emailUserDes required>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input type="password" matInput placeholder="Password" required #passwordUserDes>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Phone Number</mat-label>
+                            <input type="tel" matInput #contactUserDes required>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Date of Birth</mat-label>
+                            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="pickerUser" #dateOfBirthUserDes>
+                            <mat-datepicker-toggle matSuffix [for]="pickerUser"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerUser></mat-datepicker>
+                        </mat-form-field>
+                        <a mat-stroked-button fxFlex="45%" class="field" (click)="authService.googleSignUpForUser({name:nameUserDes.value,contact:contactUserDes.value,location:locationUserDes.value,language:languageUserDes.value,gender:genderUserDes.value,dateOfBirth:dateOfBirthUserDes.value})"><img class="level" src="assets/g.png" alt=""> Sign Up</a>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab fxFill label="For Doctors">
+                <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="space-around end">
+                    <div fxLayout="column" fxLayoutAlign="space-evenly end" fxFlex="45" fxLayoutGap="5">
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Name</mat-label>
+                            <input type="text" matInput placeholder="Name" #nameDocDes required>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Gender</mat-label>
+                            <mat-select #genderDocDes required>
+                                <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                                    {{gender.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Location</mat-label>
+                            <input type="text" matInput placeholder="Location" #locationDocDes required>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Classification</mat-label>
+                            <mat-select #docTypeDocDes required>
+                                <mat-option *ngFor="let doctype of doctypes" [value]="doctype.value">
+                                    {{doctype.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Language Preference</mat-label>
+                            <mat-select #languageDocDes required>
+                                <mat-option *ngFor="let language of languages" [value]="language.value">
+                                    {{language.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <a mat-stroked-button fxFlex="45%" class="field red-bg" (click)="authService.signUpForDoctor(emailDocDes.value,passwordDocDes.value,{name:nameDocDes.value,contact:contactDocDes.value,location:locationDocDes.value,language:languageDocDes.value,gender:genderDocDes.value,experience:experienceDocDes.value,docType:docTypeDocDes.value,dateOfBirth:dateOfBirthDocDes.value})">Sign Up</a>
+                    </div>
+                    <div fxLayout="column" fxLayoutAlign="space-evenly start" fxFlex="45" fxLayoutGap="5">
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput placeholder="Email" #emailDocDes required>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input type="password" matInput placeholder="Password" #passwordDocDes required>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Experience</mat-label>
+                            <input type="number" matInput #experienceDocDes required>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Phone Number</mat-label>
+                            <input type="tel" matInput #contactDocDes required>
+                        </mat-form-field>
+                        <mat-form-field class="field" appearance="outline">
+                            <mat-label>Date of Birth</mat-label>
+                            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="pickerDoc" #dateOfBirthDocDes required>
+                            <mat-datepicker-toggle matSuffix [for]="pickerDoc"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerDoc></mat-datepicker>
+                        </mat-form-field>
+                        <a mat-stroked-button fxFlex="45%" class="field" (click)="authService.googleSignUpForDoctor({name:nameDocDes.value,contact:contactDocDes.value,location:locationDocDes.value,language:languageDocDes.value,gender:genderDocDes.value,experience:experienceDocDes.value,docType:docTypeDocDes.value,dateOfBirth:dateOfBirthDocDes.value})"><img class="level" src="assets/g.png" alt=""> Sign Up</a>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

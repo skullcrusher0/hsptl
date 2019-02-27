@@ -1,0 +1,88 @@
+<div class="tallest" fxLayout="column" fxShow fxHide.xs="true" fxHide.lg="false">
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <a mat-button routerLink="/home" routerLinkActive="active">
+                <h4 class="rdpr">
+                    HSPTL
+                    <mat-icon>favorite</mat-icon>
+                </h4>
+            </a>
+            <span class="space"></span>
+            <h4 class="mat-card-body purple">
+                Let's Log In
+            </h4>
+            <span class="space"></span>
+            <a mat-button routerLink="/signup" routerLinkActive="active">
+                <h6 class="red">
+                    <mat-icon>keyboard_tab</mat-icon>
+                    Sign Up
+                </h6>
+            </a>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="rest" fxFlex="100">
+        <mat-tab-group mat-align-tabs="center" fxFill class="mat-elevation-z10">
+            <mat-tab fxFill label="For Users">
+                <div class="rest lower" fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+                    <mat-form-field class="field" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="text" placeholder="Email" #emailUserDes>
+                    </mat-form-field>
+                    <p style="padding: 0; margin: 0;">
+                        <a mat-flat-button routerLink="/forgot-password" routerLinkActive="active" class="purple">Forgot Password ?</a>
+                    </p>
+                    <mat-form-field class="field" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="showPassword.checked ? 'text' : 'password'" placeholder="Password" #passwordUserDes>
+                        <mat-checkbox matSuffix color="primary" #showPassword>Show</mat-checkbox>
+                    </mat-form-field>
+                    <div fxLayout="row" fxLayoutAlign="space-between center" class="field">
+                        <a mat-stroked-button fxFlex="45%" class="purple-bg" (click)="authService.logInForUser(emailUserDes.value,passwordUserDes.value)">Login</a>
+                        <a mat-stroked-button fxFlex="45%"><img class="level" src="assets/g.png" alt="" (click)="authService.googleLogInForUser()"> Login</a>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab fxFill label="For Doctors">
+                <div class="rest lower" fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+                    <mat-form-field class="field" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="text" placeholder="Email" #emailDocDes>
+                    </mat-form-field>
+                    <p style="padding: 0; margin: 0;">
+                        <a mat-flat-button routerLink="/forgot-password" routerLinkActive="active" class="purple">Forgot Password ?</a>
+                    </p>
+                    <mat-form-field class="field" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="showPassword.checked ? 'text' : 'password'" placeholder="Password" #passwordDocDes>
+                        <mat-checkbox matSuffix color="primary" #showPassword>Show</mat-checkbox>
+                    </mat-form-field>
+                    <div fxLayout="row" fxLayoutAlign="space-between center" class="field">
+                        <a mat-stroked-button fxFlex="45%" class="purple-bg" (click)="authService.logInForDoctor(emailDocDes.value,passwordDocDes.value)">Login</a>
+                        <a mat-stroked-button fxFlex="45%"><img class="level" src="assets/g.png" alt="" (click)="authService.googleLogInForDoctor()"> Login</a>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+
+
+    <!-- TODO:
+  <div class="rest" fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+    <mat-form-field class="field" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" placeholder="Email" #email>
+    </mat-form-field>
+    <p style="padding: 0; margin: 0;">
+      <a mat-flat-button routerLink="/forgot-password" routerLinkActive="active" class="purple">Forgot Password ?</a>
+    </p>
+    <mat-form-field class="field" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="showPassword.checked ? 'text' : 'password'" placeholder="Password" #password>
+      <mat-checkbox matSuffix color="primary" #showPassword>Show</mat-checkbox>
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="field">
+      <a mat-stroked-button fxFlex="45%" class="purple-bg">Login</a>
+      <a mat-stroked-button fxFlex="45%"><img class="level" src="assets/g.png" alt=""> Login</a>
+    </div>
+  </div> -->

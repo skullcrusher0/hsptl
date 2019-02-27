@@ -1,0 +1,215 @@
+@import url("assets/font.css");
+*,
+body {
+    font-family: "Google Sans" !important;
+    font-weight: 500 !important;
+}
+
+mat-icon {
+    font-family: 'Material Icons' !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+}
+
+.tooltip {
+    font-size: 0.75em !important;
+    background-color: #212121 !important;
+}
+
+html,
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+.flt {
+    z-index: 9;
+    position: fixed;
+    left: 70%;
+    top: 85%;
+}
+
+.sample-box {
+    background-color: #ffcdd2;
+    border: 2px solid #ef5350;
+}
+
+.sample-feed {
+    background-color: #e1bee7;
+    border: 2px solid #ab47bc;
+}
+
+.sample-sidebar {
+    background-color: #ffecb3;
+    border: 2px solid #ffca28;
+}
+
+.jst {
+    text-align: justify;
+}
+
+.level {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.fcard {
+    height: 100vh;
+}
+
+
+/* TODO:  */
+
+.field-h {
+    padding-top: 2.5vh;
+    padding-bottom: 2.5vh;
+    width: 25vw;
+    height: 5vh;
+}
+
+.tallest {
+    height: 100vh;
+}
+
+mat-icon {
+    display: inline-flex;
+    vertical-align: text-top;
+}
+
+mat-datepicker-toggle {
+    display: inline-flex;
+    vertical-align: inherit;
+}
+
+mat-sidenav-container,
+mat-sidenav-content,
+mat-sidenav {
+    height: 100%;
+}
+
+mat-sidenav {
+    width: 250px;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100% !important;
+}
+
+.purple-bg {
+    color: white !important;
+    background-color: #673bb7 !important;
+}
+
+.purple {
+    color: #673bb7 !important;
+}
+
+.red-bg {
+    color: white !important;
+    background-color: #f44336 !important;
+}
+
+.red {
+    color: #f44336 !important;
+}
+
+.grey-bg {
+    background-color: #f5f5f5;
+}
+
+.upper {
+    padding-bottom: 2.5vmin;
+}
+
+.lower {
+    padding-top: 7vmin;
+}
+
+.bit-lower {
+    padding-top: 15vmin;
+}
+
+.bit-left {
+    padding-right: 4vmin;
+}
+
+.rdpr {
+    animation: rdpr 15s infinite ease-in alternate-reverse;
+    -webkit-animation: ardpr 15s infinite ease-in alternate-reverse;
+    moz-animation: rdpr 15s infinite ease-in alternate-reverse;
+}
+
+@keyframes ardpr {
+    from {
+        color: #f44336
+    }
+    to {
+        color: #673bb7;
+    }
+}
+
+@-webkit-keyframes ardpr {
+    from {
+        color: #f44336
+    }
+    to {
+        color: #673bb7;
+    }
+}
+
+@-moz-keyframes ardpr {
+    from {
+        color: #f44336
+    }
+    to {
+        color: #673bb7;
+    }
+}
+
+.wide {
+    width: 50vw;
+}
+
+.field {
+    /* name change */
+    width: 25vw;
+}
+
+.field-lg {
+    /* name change */
+    width: 45vw;
+}
+
+.full {
+    width: 85vw;
+}
+
+.space {
+    flex: 1 1 auto;
+}
+
+a {
+    color: white;
+}
+
+.navigation-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.label {
+    display: inline-block;
+    line-height: 30px;
+    margin: 0;
+    width: 85%;
+}
+
+li {
+    list-style: none !important;
+}
