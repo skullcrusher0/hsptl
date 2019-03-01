@@ -1,0 +1,124 @@
+<div class="tallest" fxLayout="column" fxShow fxHide.xs="true" fxHide.lg="false">
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <a mat-button routerLink="/home" routerLinkActive="active">
+                <h4 class="rdpr">
+                    HSPTL
+                    <mat-icon>favorite</mat-icon>
+                </h4>
+            </a>
+            <span class="space"></span>
+            <h4 class="mat-card-body purple">
+                Create Event
+            </h4>
+            <span class="space"></span>
+            <a mat-button routerLink="/home-doctor" routerLinkActive="active">
+                <h6 class="red">
+                    <mat-icon>home</mat-icon>
+                    Home
+                </h6>
+            </a>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="rest" fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+        <mat-form-field class="field-lg" appearance="outline">
+            <mat-label>Event Title</mat-label>
+            <input matInput type="text" placeholder="Event Title" #eventTitleDes>
+        </mat-form-field>
+        <mat-form-field class="field-lg" appearance="outline">
+            <mat-label>Event Link</mat-label>
+            <input matInput type="url" placeholder="Event Link" #eventLinkDes>
+        </mat-form-field>
+        <mat-form-field class="field-lg" appearance="outline">
+            <mat-label>Event Need to Know</mat-label>
+            <textarea matInput matTextareaAutosize matAutosizeMinRows=6 matAutosizeMaxRows=8 #eventInfoDes></textarea>
+        </mat-form-field>
+        <!-- <mat-form-field class="field-lg">
+       <mat-chip-list #chipList>
+          <mat-chip *ngFor="let tag of tags" [selectable]="selectable" [removable]="removable" (removed)="remove(tag)">
+            {{tag.name}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+                <input placeholder="New Tag" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+        </mat-form-field> -->
+
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="field-lg">
+            <a mat-stroked-button fxFlex="100" class="purple-bg" (click)="this.postService.createEvent({content:eventInfoDes.value, title:eventTitleDes.value , link:eventLinkDes.value})">Create</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="tallest" fxLayout="column" fxShow fxHide.xs="true" fxHide.lg="false">
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <a mat-button routerLink="/home" routerLinkActive="active">
+                <h4 class="rdpr">
+                    HSPTL
+                    <mat-icon>favorite</mat-icon>
+                </h4>
+            </a>
+            <span class="space"></span>
+            <h4 class="mat-card-body purple">
+                Create Event
+            </h4>
+            <span class="space"></span>
+            <a mat-button routerLink="/home-doctor" routerLinkActive="active">
+                <h6 class="red">
+                    <mat-icon>home</mat-icon>
+                    Home
+                </h6>
+            </a>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="rest" fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+        <mat-form-field class="field-lg" appearance="outline">
+            <mat-label>Event Title</mat-label>
+            <input matInput type="text" placeholder="Post Title" #eventTitleDes>
+        </mat-form-field>
+        <mat-form-field class="field-lg" appearance="outline">
+            <mat-label>Event Content</mat-label>
+            <textarea matInput matTextareaAutosize matAutosizeMinRows="10" matAutosizeMaxRows="12" #eventContentDes></textarea>
+        </mat-form-field>
+        <mat-form-field class="field-lg" appearance="outline">
+            <mat-label>Post Media</mat-label>
+            <input matInput type="url" placeholder="Post Title">
+        </mat-form-field>
+        <mat-form-field class="field-lg">
+            <mat-chip-list #chipList>
+        <mat-chip *ngFor="let tag of tags" [selectable]="selectable" [removable]="removable" (removed)="remove(tag)">
+                    {{tag.name}}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+<input placeholder="New Tag" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+</mat-chip-list>
+</mat-form-field>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" class="field-lg">
+    <a mat-stroked-button fxFlex="100" class="purple-bg" (click)="this.postService.createEvent({content:eventContentDes.value, title:eventTitleDes.value})">Post event</a>
+</div>
+</div>
+
+</div>
+
+
+<ul *ngFor="let event of events ;let i = index" [attr.data-index]="i">
+    <li>{{event.title}}</li>
+    <li>{{event.content}}</li>
+</ul> -->

@@ -1,0 +1,125 @@
+<div class="tallest" fxLayout="column" fxShow fxHide.xs="true" fxHide.lg="false">
+    <mat-toolbar color="primary" class="mat-elevation-z10 fixed-header" fxShow fxHide.xs="true" fxHide.lg="false">
+        <mat-toolbar-row>
+            <a mat-button routerLink="/login" routerLinkActive="active">
+                <h4 class="red">
+                    HSPTL
+                    <mat-icon>favorite</mat-icon>
+                </h4>
+            </a>
+            <a mat-button>
+          Let's Cure
+        </a>
+            <a mat-button>
+          Let's Talk
+        </a>
+            <a mat-button>
+          Find a Doc'
+        </a>
+            <a mat-button routerLink="/blog" routerLinkActive="active">
+          Blog
+        </a>
+            <span class="space"></span>
+            <button mat-stroked-button [matMenuTriggerFor]="menu">Hi, Dr. {{userName}}
+          <!-- Doctor Name  --></button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="authService.logOut()">Logout</button>
+            </mat-menu>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div fxLayout="row" fxLayoutAlign="space-evenly stretch" fxFlex="100" fxLayoutGap="4%">
+        <div fxFlex="15">
+        </div>
+        <mat-divider [vertical]="true"></mat-divider>
+
+        <div fxFlex="75">
+            <div class="bit-lower"></div>
+            <ul *ngFor="let post of posts; let i=index">
+                <li>
+                    <mat-card>
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>
+                                {{this.post.title}}
+                            </mat-card-title>
+                            <mat-card-subtitle>Written by <span class="red"> {{userName}}
+                  </span></mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image class="scaled" src="assets/hr.png" alt="">
+                        <mat-card-content class="jst">
+                            <p>
+                                {{this.post.content}}
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+                    <mat-divider></mat-divider>
+                </li>
+                <!-- <mat-chip-list *ngFor="let key of objectKeys(tags)">
+                    <mat-chip>
+                        {{tags[key]}}
+                    </mat-chip>
+                </mat-chip-list> -->
+            </ul>
+            <div class="lower"></div>
+        </div>
+        <mat-divider [vertical]="true"></mat-divider>
+
+        <div fxFlex="20" class="bit-left">
+            <ul *ngFor="let event of events">
+                <li>
+                    <div class="bit-lower"></div>
+                    <mat-card class="mat-elevation-z0">
+                        <mat-card-subtitle class="purple">
+                            {{event.title}}
+                        </mat-card-subtitle>
+                        <div class="mat-body">
+                            link: {{event.link}}
+                        </div>
+                        <mat-card-content>
+                            <p>
+                                {{event.content}}
+                            </p>
+                            <!-- <mat-chip-list>
+                                    <mat-chip>
+                                         Tags Tag</mat-chip>
+                                    <mat-chip>
+                                      Tags Tag</mat-chip>
+                            </mat-chip-list>  -->
+                        </mat-card-content>
+                    </mat-card>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <eco-fab-speed-dial class="flt">
+            <eco-fab-speed-dial-trigger>
+                <button mat-raised-button matTooltip="Create" matTooltipClass="tooltip" matTooltipPosition="right" ma mat-fab class="red-bg">
+            <mat-icon class="red-bg">add</mat-icon>
+          </button>
+            </eco-fab-speed-dial-trigger>
+            <eco-fab-speed-dial-actions>
+                <button routerLink="/create-post" routerLinkActive="active" mat-mini-fab mat-fab matTooltip="Create Post" matTooltipClass="tooltip" matTooltipPosition="right" class="red-bg">
+            <mat-icon>edit</mat-icon>
+          </button>
+                <button routerLink="/create-event" routerLinkActive="active" mat-mini-fab mat-fab matTooltip="Create Event" matTooltipClass="tooltip" matTooltipPosition="right" class="red-bg">
+            <mat-icon>event</mat-icon>
+          </button>
+                <button mat-mini-fab mat-fab matTooltip="Some Button" matTooltipClass="tooltip" matTooltipPosition="right" class="red-bg">
+            <mat-icon>search</mat-icon>
+          </button>
+            </eco-fab-speed-dial-actions>
+        </eco-fab-speed-dial>
+    </div>
+</div>
+<!-- <mat-chip-list>
+    <ul *ngFor="let post of posts ;let i = index" [attr.data-index]="i">
+
+        <mat-chip>
+            {{post.data().tags[i]}}
+        </mat-chip>
+
+    </ul>
+</mat-chip-list> -->
